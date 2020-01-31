@@ -12,11 +12,11 @@ function guess() {
   userGuess = document.getElementById("guess").value;
   var rand;
   if (rand < userGuess) {
-    console.log("no boi its lower!");
+    console.log("no its lower!");
   } else if (rand > userGuess) {
-    console.log("no boi its higher!");
+    console.log("no its higher!");
   } else if (rand == userGuess) {
-    console.log("good shit m8");
+    console.log("good job ");
   }
 }
 
