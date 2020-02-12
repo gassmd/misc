@@ -11,12 +11,20 @@ var testEquation = new Array();
 
 function display(val) {
   document.getElementById("result").value += val;
+  document.getElementById("equation").value += val;
   console.log("displayed number " + val);
 }
 
 function clearDis() {
-  document.getElementById("result").value = " ";
+  document.getElementById("result").value = "";
   console.log("cleared display");
+}
+
+function clearAll(){
+  testEquation.splice(0, testEquation.length);
+  clearDis();
+  document.getElementById("equation").value = "";
+
 }
 
 function storeNum() {
@@ -25,14 +33,9 @@ function storeNum() {
   return num1;
 }
 
-function storeNum2() {
-  num2 = document.getElementById("result").value;
-  console.log("2nd stored " + num2);
-  return num2;
-}
-
 function storeOperation(op) {
     storeNum(); 
+    document.getElementById("equation").value += op;
     console.log("stored operation: " + op);
     console.log(num1 + "    " + op)
     clearDis();
@@ -60,16 +63,44 @@ function equals() {
 }
 
 function testEquals(){
-  var testOp, testNum1, testNum2, testAns;
+  console.log(testEquation.join(""));
+  var newAns = eval(testEquation.join("")); 
+  console.log(newAns); 
+  document.getElementById("result").value = newAns;
+  displayAnswer();
+}
+
+function displayAnswer(){
+  console.log("display answer");
+  document.getElementById("result").innerHTML = "Hello World";
+}
+
+
+ /* var testOp, testNum1, testNum2, testAns;
   for (i = 0; i < testEquation.length; i++){
     if (testEquation[i] == "*" || testEquation[i] == "/"){
       testOp = testEquation[i];
       console.log(testOp + " at position " + i);
       testNum1 = testEquation[i-1];
       testNum2 = testEquation[i+1];
+      console.log(testEquation);
       console.log("stored numbers: " + testNum1 + "," + testNum2);
       testAns = eval(testNum1+testOp+testNum2); 
+      document.getElementById("result").value = testAns;
       console.log(testAns); 
-    }    
+      console.log(testEquation);
+      //testEquation[i] == testAns;
+      
+    }
+    else if (testEquation[i] == "+" || testEquation[i] == "-"){
+      testOp = testEquation[i];
+      console.log(testOp + " at position " + i);
+      testNum1 = testEquation[i-1];
+      testNum2 = testEquation[i+1];
+      console.log("stored numbers: " + testNum1 + "," + testNum2);
+      testAns = eval(testNum1+testOp+testNum2); 
+      document.getElementById("result").value = testAns;
+      console.log(testAns); 
+    }
   }
-}
+}*/

@@ -11,7 +11,7 @@
   <page>
     <h1>Mike G's Calculator</h1>
     <td colspan="3" style = "text-align:center"><input type="text" id="result" /></td>
-    <td><input type="button" value="c" onclick="clearDis()" /></td>
+    <td><input type="button" value="c" onclick="clearAll()" /></td>
     <body>
       
         
@@ -40,12 +40,12 @@
         <tr>
           <td><input type="button" value="." onclick="display(value)" /></td>
           <td><input type="button" value="0" onclick="display(value)" /></td>
-          <td><input type="button" value="=" onclick="equals()" /></td>
+          <td><input type="button" value="=" onclick="equals(); displayAnswer()"/></td>
           <td><input type="button" value="/" onclick="storeOperation('/')" /></td>
         </tr>
-        <td colspan = "4"><input type = "text" id = "equation" /></
+        <td colspan = "4"><input type = "text" id = "equation" />
+          <h1 id = "result"></h1>
       </table>
-      <h1 id = "equation" onload = "displayEquation()"> TEST TEST</h1>
     </body>
   </page>
 </html>
