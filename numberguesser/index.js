@@ -1,26 +1,53 @@
+var randNum;
+
 function display(val) {
   document.getElementById("guess").value += val;
 }
 
-function newRandomGenerate() {
-  const rand = Math.floor(Math.random() * 100);
-  return new newRandomNumberGenerate();
-  console.log(rand);
+function clearDisplay(){
+  document.getElementById("guess").value = "";
+}
+
+
+var newRandom; 
+var count = 1;
+var userGuesses = []; 
+
+function randNumGen() {
+  newRandom = Math.floor(Math.random() * 100);
+  console.log(newRandom);
+  return newRandom;
 }
 
 function guess() {
-  userGuess = document.getElementById("guess").value;
-  var rand;
-  if (rand < userGuess) {
-    console.log("no its lower!");
-  } else if (rand > userGuess) {
-    console.log("no its higher!");
-  } else if (rand == userGuess) {
-    console.log("good job ");
+  var userGuess = document.getElementById("guess").value;
+  console.log("guess hit, user guess: " + userGuess);
+  console.log("current answer: " + newRandom);
+  clearDisplay(); 
+  var resultString;
+  if (newRandom == userGuess) {
+    resultString = "Good Job You Win! the answer is " + newRandom;
+    highlightAnswer();
+    console.log("good job");
+  } else if (newRandom > userGuess) {
+    resultString = "No it is higher! Guesses: " + count;
+    console.log("The answer is higher! Guesses: " + count);
+  } else if (newRandom < userGuess) {
+    resultString = "The answer is lower! Guesses: " + count;
+    console.log("The answer is lower! Guesses: " + count);
   }
+  count++; 
+  userGuesses.push(" " + userGuess);
+  userGuesses.sort();
+  document.getElementById("result").innerHTML = resultString;
+  document.getElementById("userGuesses").innerHTML = userGuesses;
+  console.log(userGuesses);
 }
 
-function gameLoop() {
-  var random = newRandomGenerate();
-  var userNumber, score;
+function highlightAnswer(){
+  for (var i = 0; i < userGuesses.length; i++){
+    if (userGuesses[i] = newRandom){
+      console.log("TEST HIGHLIGHT");
+    }
+  }
 }

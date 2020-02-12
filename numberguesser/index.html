@@ -11,8 +11,8 @@
   <page>
     <h1>Mike G's Guesser</h1>
 
-    <body>
-      <table style="width:100%">
+    <body onload = "randNumGen()">
+      <table>
         <tr>
           <td colspan="3"><input type="text" id="guess" /></td>
         </tr>
@@ -34,14 +34,16 @@
         </tr>
         <tr>
           <td>
-            <input type="button" value=" " onclick="guess()" />
+            <input type="button" value="g" onclick="guess()" />
           </td>
           <td><input type="button" value="0" onclick="display(value)" /></td>
           <td>
-            <input type="button" value="?" onclick="guess()" />
+            <input type="button" value="N" onclick="randNumGen()" />
           </td>
         </tr>
       </table>
+      <h1 id = "result">result</h1>
+      <h1 id = "userGuesses">Your Guesses</h1>
     </body>
   </page>
 </html>
